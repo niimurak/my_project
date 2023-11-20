@@ -196,6 +196,9 @@ def GetConds():
 # 計測値グラフ作成
 def MeasPlot():
     global Mydb, Pptn, Pdevl, Pnamel, Psdate, Pedate, Fig, Ax, xdate, yvalue
+
+    # 選択条件取得
+    GetConds()
     # DBから測定値を取得
     mycursor=Mydb.cursor()
     xdate = [[],[],[],[],[]]
@@ -299,7 +302,6 @@ def MeasPlot():
 def execg():
     global Fig, ent1, ent2, Psdate, Pedate, Pdevl, Pnamel, List_chk, List_devser, List_meas
 
-    GetConds()
     MeasPlot()
     canvas = FigureCanvasTkAgg(Fig, frame_3)
     canvas.draw()
